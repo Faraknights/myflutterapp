@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myflutterapp/models/product.dart';
 
 import '../database/database_helper.dart';
+import '../utils/color.dart';
 import 'pop_up_delete.dart';
 import 'pop_up_name.dart';
 
@@ -29,6 +30,7 @@ class ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     final dbHelper = DatabaseHelper.instance;
+    final UtilColor utilColor = UtilColor();
 
     return FutureBuilder <Product>(
       future: _fetchProduct(widget.product.id),
@@ -52,7 +54,7 @@ class ProductItemState extends State<ProductItem> {
               children: [
                 Container(
                   height: 3,
-                  color: Colors.amber,
+                  color: utilColor.randomMaterialColor(),
                 ),
                 Expanded(
                   child: Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
+import '../utils/color.dart';
 import '../widget/pop_up_name.dart';
 import '../widget/list_inventory.dart';
 
@@ -11,6 +12,7 @@ class HomeRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     final GlobalKey<ListInventoryState> key = GlobalKey();
     final dbHelper = DatabaseHelper.instance;
+    final UtilColor utilColor = UtilColor();
     // reference to our single class that manages the database
 
     return Scaffold(
@@ -35,6 +37,7 @@ class HomeRoute extends StatelessWidget {
         },
         tooltip: 'Ajouter un inventaire',
         shape: const BeveledRectangleBorder(borderRadius: BorderRadius.zero),
+        backgroundColor: utilColor.randomMaterialColor(),
         child: const Icon(Icons.add)
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myflutterapp/models/inventory.dart';
 import '../database/database_helper.dart';
+import '../utils/color.dart';
 
 class ListInventory extends StatefulWidget {
   const ListInventory({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class ListInventoryState extends State<ListInventory> {
 
   @override
   Widget build(context) {
+    final UtilColor utilColor = UtilColor();
     return FutureBuilder <List<Inventory>>(
       future: _fetchListItems(),
       builder: (BuildContext context, AsyncSnapshot<List<Inventory>> snapshot) {
@@ -63,7 +65,7 @@ class ListInventoryState extends State<ListInventory> {
                           Container(
                             width: 5,
                             height: 70,
-                            color: Colors.amber[600],
+                            color: utilColor.randomMaterialColor(),
                             margin: const EdgeInsets.only(right: 10.0),
                           ),
                           Container(

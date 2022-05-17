@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/utils/color.dart';
 import '../widget/inventory_header.dart';
 import '../widget/grid_product.dart';
 import '../database/database_helper.dart';
@@ -12,6 +13,8 @@ class InventoryRoute extends StatelessWidget {
     Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
     final GlobalKey<GridProductState> key = GlobalKey();
     final dbHelper = DatabaseHelper.instance;
+    final UtilColor utilColor = UtilColor();
+    final Color mainColor = utilColor.randomMaterialColor();
 
     return WillPopScope(
       onWillPop: () async {
@@ -30,6 +33,7 @@ class InventoryRoute extends StatelessWidget {
           children: [
             HeaderInventory(
               updateList: arguments['update'] as Function,
+              color: mainColor,
               id: arguments['id'] as int,
             ),
             GridProduct(
@@ -55,6 +59,7 @@ class InventoryRoute extends StatelessWidget {
             }
           },
           tooltip: 'Ajouter un inventaire',
+          backgroundColor: mainColor,
           shape: const BeveledRectangleBorder(borderRadius: BorderRadius.zero),
           child: const Icon(Icons.add)
         )

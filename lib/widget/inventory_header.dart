@@ -6,11 +6,13 @@ import 'pop_up_name.dart';
 
 class HeaderInventory extends StatefulWidget {
   final int id;
+  final Color color;
   final Function updateList;
 
   const HeaderInventory({
     Key? key, 
     required this.id, 
+    required this.color,
     required this.updateList,
   }) : super(key: key);
 
@@ -48,9 +50,9 @@ class HeaderInventoryState extends State<HeaderInventory> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Ink(
-                    decoration: const ShapeDecoration(
-                      color: Colors.lightBlue,
-                      shape: CircleBorder(),
+                    decoration: ShapeDecoration(
+                      color: widget.color,
+                      shape: const CircleBorder(),
                     ),
                     child: IconButton(
                       icon: const Icon(Icons.edit),
