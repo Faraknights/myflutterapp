@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class PopUp extends StatefulWidget {
+class PopUpName extends StatefulWidget {
   final String title;
+  final String initialValue;
 
-  const PopUp({Key? key, required this.title}) : super(key: key);
+  const PopUpName({Key? key, required this.title, required this.initialValue}) : super(key: key);
 
   @override
-  PopUpState createState() => PopUpState();
+  PopUpNameState createState() => PopUpNameState();
 }
 
-class PopUpState extends State<PopUp> {
+class PopUpNameState extends State<PopUpName> {
   late TextEditingController controller;
   late bool error;
 
@@ -17,7 +18,7 @@ class PopUpState extends State<PopUp> {
   void initState() {
     super.initState();
 
-    controller = TextEditingController();
+    controller = TextEditingController(text: widget.initialValue);
     error = false;
   }
 
